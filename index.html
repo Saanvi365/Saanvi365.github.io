@@ -11,161 +11,166 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0a0a0a;
-      color: #e5e5e5;
+      color: #ffffff;
       line-height: 1.6;
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 40px 20px;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.85);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 5px;
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .section {
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+      color: #fff;
     }
 
     h2 {
-      margin-top: 50px;
-      font-size: 1.5em;
-      color: white;
+      border-bottom: 2px solid #444;
+      padding-bottom: 10px;
     }
 
     p {
-      color: #aaa;
+      color: #ccc;
     }
 
-    .small {
-      font-size: 0.9em;
-      color: #666;
+    ul {
+      padding-left: 20px;
     }
 
-    a {
-      color: #4f9cff;
+    li {
+      margin-bottom: 12px;
+    }
+
+    a.contact-link {
+      color: #1e90ff;
       text-decoration: none;
     }
 
-    a:hover {
+    a.contact-link:hover {
       text-decoration: underline;
     }
 
-    .project {
-      margin-bottom: 25px;
-    }
-
-    .project-title {
-      font-weight: bold;
-      color: white;
-    }
-
     footer {
-      margin-top: 60px;
-      font-size: 0.9em;
+      text-align: center;
+      padding: 40px;
       color: #666;
+      border-top: 1px solid #222;
     }
   </style>
 </head>
-
 <body>
 
-<div class="container">
-
-  <h1>Saanvi Gunukula</h1>
-  <div class="small">Last updated: April 2026</div>
-
-  <p>
-    I'm a high school student building AI systems that solve real-world problems, especially in healthcare, accessibility, and human-centered technology.
-  </p>
-
-  <p>
-    Recently, I built AI-powered smart glasses for visually impaired users using Raspberry Pi, object detection, and voice interaction. The idea came from my own experience with vision challenges, and it pushed me to think about how engineering can directly improve people's lives.
-  </p>
-
-  <p>
-    I’m interested in applied machine learning, human-centered AI, and building systems that operate under real-world constraints. Most of my work sits at the intersection of technical depth and social impact.
-  </p>
-
-  <h2>Projects</h2>
-
-  <div class="project">
-    <div class="project-title">AI Smart Glasses (BlueStamp Engineering)</div>
-    <p>
-      Built wearable smart glasses using Raspberry Pi with object detection, ultrasonic sensors, and voice feedback for visually impaired users. Integrated real-time interaction using conversational AI.
-    </p>
+<nav>
+  <div><b>Saanvi Gunukula</b></div>
+  <div>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </div>
+</nav>
 
-  <div class="project">
-    <div class="project-title">Rural Drone Navigation System</div>
-    <p>
-      Developed a Flask web app that maps efficient drone routes to pharmacies in rural areas using Google Maps API and 3D flight path simulation.
-    </p>
-  </div>
+<section class="section" id="about">
+  <h1>About me</h1>
+  <p>Incoming Computer Science freshman at <b>UC Berkeley</b>. I build AI-powered systems that solve real-world problems — from wearable smart glasses for the visually impaired to intelligent navigation tools for drones in rural areas. After personally experiencing vision challenges, I became passionate about assistive technology and applying computer science to make a meaningful impact. </p>
+</section>
 
-  <div class="project">
-    <div class="project-title">Heart X-Ray Classifier</div>
-    <p>
-      Trained machine learning models using OpenCV and scikit-learn to detect abnormalities in chest X-rays. Generated NLP-based medical summaries for interpretability.
-    </p>
-  </div>
+<section class="section" id="interests">
+  <h2>Interests</h2>
+  <ul>
+    <li>AI & Machine Learning: applied to healthcare, accessibility, and social good</li>
+    <li>Robotics & Navigation: autonomous systems and intelligent devices</li>
+    <li>Data Science: building predictive models and processing complex datasets</li>
+    <li>Software & App Development: designing user-centered applications for real-world problems</li>
+  </ul>
+</section>
 
-  <div class="project">
-    <div class="project-title">Digital Speech Coach (Hackathon Winner)</div>
-    <p>
-      Built an NLP-powered app to analyze pacing, filler words, and clarity in speech. Won 1st place at a local AI hackathon.
-    </p>
-  </div>
+<section class="section" id="non-professional">
+  <h2>Non-professional interests</h2>
+  <ul>
+    <li>Basketball (varsity player, youth coach)</li>
+    <li>Bollywood & Bharatanatyam dance</li>
+    <li>Piano, Violin, Sangeetham</li>
+    <li>Chess & Strategy Games</li>
+    <li>Hiking & Snowboarding</li>
+    <li>Anime & Manga (Steins Gate, Vinland Saga, Monster)</li>
+  </ul>
+</section>
 
-  <div class="project">
-    <div class="project-title">MoodRoot (Hackathon Project)</div>
-    <p>
-      Designed a journaling app with sentiment analysis to track emotional patterns and encourage reflection.
-    </p>
-  </div>
+<section class="section" id="fun-facts">
+  <h2>Fun facts</h2>
+  <ul>
+    <li>Built AI-powered smart glasses for visually impaired users integrating object detection and ChatGPT</li>
+    <li>Created drone navigation web app for rural healthcare delivery using Google Maps API</li>
+    <li>Won local AI hackathon for a Digital Speech Coach using NLP</li>
+    <li>Taught coding workshops to 5,000+ students nationwide with <b>Kids Teach Tech</b></li>
+    <li>Served as CFO for Entrepreneurship Leadership Conference, managing budgets for 100+ participants</li>
+  </ul>
+</section>
 
-  <div class="project">
-    <div class="project-title">Social Census Analyzer</div>
-    <p>
-      Created a predictive ML model to analyze income distribution based on demographic data, incorporating NLP for user-submitted inputs.
-    </p>
-  </div>
-
-  <h2>Experience</h2>
-
-  <p>
-    I’ve worked across engineering, leadership, and community impact roles:
-  </p>
+<section class="section" id="projects">
+  <h2>Projects & Research</h2>
 
   <ul>
-    <li>Chief Financial Officer — Entrepreneurship Leadership Conference (100+ members)</li>
-    <li>Instructor — Kids Teach Tech (taught 5,000+ students nationwide)</li>
-    <li>Policy Debater — State-level competitor</li>
-    <li>Robotics — Prosthetic arm design for humanitarian aid</li>
-    <li>Founder — MemoryMatters (mental health awareness nonprofit)</li>
-    <li>Private Tutor — Math & Computer Science</li>
-    <li>Varsity Basketball + Youth Coach</li>
+    <li>
+      <b>AI Smart Glasses | BlueStamp Engineering</b> – Built Raspberry Pi-powered wearable smart glasses for visually impaired users with ultrasonic sensors, object detection, ChatGPT integration, and speech feedback. Focused on user-centered design and real-time interactivity.  
+      <br><b>Repo:</b> <a href="#" target="_blank">Insert GitHub link here</a>
+    </li>
+    <li>
+      <b>Rural Drone Navigation Web App</b> – Developed a Flask web app to route drones delivering medicine in rural areas. Integrated Google Maps API, altitude-based flight simulation, and scalable social impact design.
+    </li>
+    <li>
+      <b>Heart X-Ray Analyzer</b> – Trained ML model using OpenCV and scikit-learn to detect abnormalities in chest X-rays. Added NLP-generated summary reports for easier interpretation by medical professionals.  
+      <br><b>Repo:</b> <a href="#" target="_blank">Insert GitHub link here</a>
+    </li>
+    <li>
+      <b>MoodRoot | Hackathon Project</b> – Designed a sentiment-analysis journaling app in a 36-hour hackathon to track mental wellness. Balanced usability and ML functionality under time pressure.
+    </li>
+    <li>
+      <b>Digital Speech Coach | Hackathon Winner</b> – Built NLP-based app analyzing public speaking for filler words, pacing, and clarity. Won 1st place for innovative AI feedback in communication.
+    </li>
+    <li>
+      <b>Social Census Analyzer</b> – Created predictive model for income distribution using demographic data. Applied NLP for processing survey inputs and ensured ethical, fair data practices.
+    </li>
+    <li>
+      <b>Red Cross Volunteer</b> – Led community service and emergency response initiatives, helping organize events and provide hands-on support in underserved communities.
+    </li>
   </ul>
+</section>
 
-  <h2>Interests</h2>
-
-  <p>
-    Applied AI in healthcare and accessibility. Human-centered system design. Machine learning under real-world constraints.
-  </p>
-
-  <p>
-    I’m especially interested in building systems where accuracy, usability, and reliability all matter — environments where failure has real consequences.
-  </p>
-
+<section class="section" id="contact">
   <h2>Contact</h2>
+  <p>Email: <a class="contact-link" href="mailto:saanvi365@example.com">saanvi365@example.com</a></p>
+  <p>GitHub: <a class="contact-link" href="https://github.com/saanvi365">github.com/saanvi365</a></p>
+  <p>LinkedIn: <a class="contact-link" href="https://linkedin.com/in/saanvigd">linkedin.com/in/saanvigd</a></p>
+  <p>If you’re working on something interesting, I’d love to hear about it.</p>
+</section>
 
-  <p>Email: gunukulasaanvi@email.com</p>
-  <p>GitHub: github.com/Saanvi365</p>
-
-  <footer>
-    © 2026 Saanvi Gunukula
-  </footer>
-
-</div>
+<footer>
+  © 2026 Saanvi Gunukula
+</footer>
 
 </body>
 </html>
