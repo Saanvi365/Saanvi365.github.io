@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Saanvi Gunukula</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(0,0,0,0.8);
+      position: sticky;
+      top: 0;
+    }
+
+    nav a {
+      color: #aaa;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 120px 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      color: #aaa;
+      max-width: 600px;
+      margin: auto;
+      font-size: 1.1em;
+    }
+
+    .section {
+      padding: 80px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: #111;
+      padding: 25px;
+      border-radius: 12px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div><b>Saanvi</b></div>
+  <div>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Hi, I'm Saanvi</h1>
+  <p>
+    I build AI-powered systems that solve real-world problems — from smart glasses for the visually impaired to intelligent navigation tools.
+  </p>
+</section>
+
+<section class="section" id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects">
+
+    <div class="card">
+      <h3>AI Smart Glasses</h3>
+      <p>
+        Built wearable smart glasses using Raspberry Pi with object detection, speech feedback, and obstacle detection.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Drone Navigation App</h3>
+      <p>
+        Designed a navigation system for drones in rural areas with limited infrastructure.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="about">
+  <h2>About Me</h2>
+  <p>
+    I'm a high school student passionate about AI, engineering, and building technology that creates real impact. After experiencing vision challenges, I became interested in assistive technology and began developing solutions to help others.
+  </p>
+</section>
+
+<section class="section" id="contact">
+  <h2>Contact</h2>
+  <p>Email: your@email.com</p>
+  <p>GitHub: github.com/yourusername</p>
+</section>
+
+<footer>
+  © 2026 Saanvi Gunukula
+</footer>
+
+</body>
+</html>
