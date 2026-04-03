@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,76 +11,57 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0a0a0a;
-      color: #ffffff;
+      color: #e5e5e5;
+      line-height: 1.6;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px 40px;
-      background: rgba(0,0,0,0.8);
-      position: sticky;
-      top: 0;
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
     }
 
-    nav a {
-      color: #aaa;
-      text-decoration: none;
-      margin-left: 20px;
-      transition: 0.3s;
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 5px;
     }
 
-    nav a:hover {
+    h2 {
+      margin-top: 50px;
+      font-size: 1.5em;
       color: white;
     }
 
-    .hero {
-      text-align: center;
-      padding: 120px 20px;
-    }
-
-    .hero h1 {
-      font-size: 3.5em;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
+    p {
       color: #aaa;
-      max-width: 600px;
-      margin: auto;
-      font-size: 1.1em;
     }
 
-    .section {
-      padding: 80px 40px;
-      max-width: 1000px;
-      margin: auto;
+    .small {
+      font-size: 0.9em;
+      color: #666;
     }
 
-    .projects {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+    a {
+      color: #4f9cff;
+      text-decoration: none;
     }
 
-    .card {
-      background: #111;
-      padding: 25px;
-      border-radius: 12px;
-      transition: transform 0.2s;
+    a:hover {
+      text-decoration: underline;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
+    .project {
+      margin-bottom: 25px;
     }
 
-    .card h3 {
-      margin-top: 0;
+    .project-title {
+      font-weight: bold;
+      color: white;
     }
 
     footer {
-      text-align: center;
-      padding: 40px;
+      margin-top: 60px;
+      font-size: 0.9em;
       color: #666;
     }
   </style>
@@ -87,60 +69,103 @@
 
 <body>
 
-<nav>
-  <div><b>Saanvi</b></div>
-  <div>
-    <a href="#projects">Projects</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+<div class="container">
 
-<section class="hero">
-  <h1>Hi, I'm Saanvi</h1>
+  <h1>Saanvi Gunukula</h1>
+  <div class="small">Last updated: April 2026</div>
+
   <p>
-    I build AI-powered systems that solve real-world problems — from smart glasses for the visually impaired to intelligent navigation tools.
+    I'm a high school student building AI systems that solve real-world problems, especially in healthcare, accessibility, and human-centered technology.
   </p>
-</section>
 
-<section class="section" id="projects">
+  <p>
+    Recently, I built AI-powered smart glasses for visually impaired users using Raspberry Pi, object detection, and voice interaction. The idea came from my own experience with vision challenges, and it pushed me to think about how engineering can directly improve people's lives.
+  </p>
+
+  <p>
+    I’m interested in applied machine learning, human-centered AI, and building systems that operate under real-world constraints. Most of my work sits at the intersection of technical depth and social impact.
+  </p>
+
   <h2>Projects</h2>
 
-  <div class="projects">
-
-    <div class="card">
-      <h3>AI Smart Glasses</h3>
-      <p>
-        Built wearable smart glasses using Raspberry Pi with object detection, speech feedback, and obstacle detection.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Drone Navigation App</h3>
-      <p>
-        Designed a navigation system for drones in rural areas with limited infrastructure.
-      </p>
-    </div>
-
+  <div class="project">
+    <div class="project-title">AI Smart Glasses (BlueStamp Engineering)</div>
+    <p>
+      Built wearable smart glasses using Raspberry Pi with object detection, ultrasonic sensors, and voice feedback for visually impaired users. Integrated real-time interaction using conversational AI.
+    </p>
   </div>
-</section>
 
-<section class="section" id="about">
-  <h2>About Me</h2>
+  <div class="project">
+    <div class="project-title">Rural Drone Navigation System</div>
+    <p>
+      Developed a Flask web app that maps efficient drone routes to pharmacies in rural areas using Google Maps API and 3D flight path simulation.
+    </p>
+  </div>
+
+  <div class="project">
+    <div class="project-title">Heart X-Ray Classifier</div>
+    <p>
+      Trained machine learning models using OpenCV and scikit-learn to detect abnormalities in chest X-rays. Generated NLP-based medical summaries for interpretability.
+    </p>
+  </div>
+
+  <div class="project">
+    <div class="project-title">Digital Speech Coach (Hackathon Winner)</div>
+    <p>
+      Built an NLP-powered app to analyze pacing, filler words, and clarity in speech. Won 1st place at a local AI hackathon.
+    </p>
+  </div>
+
+  <div class="project">
+    <div class="project-title">MoodRoot (Hackathon Project)</div>
+    <p>
+      Designed a journaling app with sentiment analysis to track emotional patterns and encourage reflection.
+    </p>
+  </div>
+
+  <div class="project">
+    <div class="project-title">Social Census Analyzer</div>
+    <p>
+      Created a predictive ML model to analyze income distribution based on demographic data, incorporating NLP for user-submitted inputs.
+    </p>
+  </div>
+
+  <h2>Experience</h2>
+
   <p>
-    I'm a high school student passionate about AI, engineering, and building technology that creates real impact. After experiencing vision challenges, I became interested in assistive technology and began developing solutions to help others.
+    I’ve worked across engineering, leadership, and community impact roles:
   </p>
-</section>
 
-<section class="section" id="contact">
+  <ul>
+    <li>Chief Financial Officer — Entrepreneurship Leadership Conference (100+ members)</li>
+    <li>Instructor — Kids Teach Tech (taught 5,000+ students nationwide)</li>
+    <li>Policy Debater — State-level competitor</li>
+    <li>Robotics — Prosthetic arm design for humanitarian aid</li>
+    <li>Founder — MemoryMatters (mental health awareness nonprofit)</li>
+    <li>Private Tutor — Math & Computer Science</li>
+    <li>Varsity Basketball + Youth Coach</li>
+  </ul>
+
+  <h2>Interests</h2>
+
+  <p>
+    Applied AI in healthcare and accessibility. Human-centered system design. Machine learning under real-world constraints.
+  </p>
+
+  <p>
+    I’m especially interested in building systems where accuracy, usability, and reliability all matter — environments where failure has real consequences.
+  </p>
+
   <h2>Contact</h2>
+
   <p>Email: your@email.com</p>
   <p>GitHub: github.com/yourusername</p>
-</section>
 
-<footer>
-  © 2026 Saanvi Gunukula
-</footer>
+  <footer>
+    © 2026 Saanvi Gunukula
+  </footer>
+
+</div>
 
 </body>
 </html>
