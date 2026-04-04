@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +9,26 @@
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0a0a0a;
-      color: #ffffff;
+      background: #ffffff;
+      color: #111111;
       line-height: 1.6;
+    }
+
+    /* Sticky header with big name */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 20px;
+      text-align: center;
+      z-index: 1000;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 0;
+      color: #111111;
     }
 
     .section {
@@ -21,18 +37,15 @@
       margin: auto;
     }
 
-    h1, h2 {
-      margin-bottom: 20px;
-      color: #fff;
-    }
-
     h2 {
-      border-bottom: 2px solid #444;
+      margin-bottom: 20px;
+      color: #111111;
+      border-bottom: 2px solid #ccc;
       padding-bottom: 10px;
     }
 
     p {
-      color: #ccc;
+      color: #333333;
     }
 
     ul {
@@ -55,15 +68,19 @@
     footer {
       text-align: center;
       padding: 40px;
-      color: #666;
-      border-top: 1px solid #222;
+      color: #666666;
+      border-top: 1px solid #ddd;
     }
   </style>
 </head>
 <body>
 
+<header>
+  <h1>Saanvi Gunukula</h1>
+</header>
+
 <section class="section" id="about">
-  <h1>About me</h1>
+  <h2>About me</h2>
   <p>Incoming Computer Science freshman at <b>UC Berkeley</b>. I build AI-powered systems that solve real-world problems — from wearable smart glasses for the visually impaired to intelligent navigation tools for drones in rural areas. After personally experiencing vision challenges, I became passionate about assistive technology and applying computer science to make a meaningful impact.</p>
 </section>
 
@@ -80,7 +97,7 @@
 <section class="section" id="non-professional">
   <h2>Non-professional interests</h2>
   <ul>
-    <li>Basketball (varsity player, youth coach)</li>
+    <li>Basketball</li>
     <li>Bollywood dancing</li>
     <li>Matcha & café hopping</li>
     <li>Hiking & gym</li>
