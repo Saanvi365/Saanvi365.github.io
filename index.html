@@ -8,23 +8,27 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
             background: #f9f9f9;
             color: #111;
-            line-height: 1.6;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            max-width: 550px; /* limits line length like "I'm building Phyvant..." */
+            padding: 40px 20px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
+            text-align: center;
         }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin-top: 2rem;
             margin-bottom: 1rem;
             border-bottom: 1px solid #ccc;
@@ -32,7 +36,7 @@
         }
 
         p, li {
-            font-size: 1rem;
+            font-size: 0.95rem; /* slightly smaller */
             margin-bottom: 0.8rem;
         }
 
@@ -53,59 +57,59 @@
             margin-top: 2rem;
             padding-top: 1rem;
             border-top: 1px solid #ccc;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666;
+            text-align: center;
         }
     </style>
 </head>
 <body>
+    <main>
 
-    <h1>Saanvi Gunukula</h1>
+        <h1>Saanvi Gunukula</h1>
 
-    <h2>About Me</h2>
-    <p>Incoming Computer Science freshman at UC Berkeley. I build AI-powered systems solving real-world problems — from wearable smart glasses for the visually impaired to intelligent drone navigation in rural areas. After personally experiencing vision challenges, I became passionate about assistive technology and using CS to make a meaningful impact.</p>
+        <h2>About Me</h2>
+        <p>Incoming Computer Science freshman at UC Berkeley. I build AI-powered systems solving real-world problems — from wearable smart glasses for the visually impaired to intelligent drone navigation in rural areas. After personally experiencing vision challenges, I became passionate about assistive technology and using CS to make a meaningful impact.</p>
 
-    <h2>Interests</h2>
-    <p>AI & Machine Learning: applied to healthcare, accessibility, and social good. Robotics & Navigation: autonomous systems and intelligent devices. Data Science: predictive modeling and processing complex datasets. Software & App Development: designing user-centered applications.</p>
-    <p>I enjoy building systems that work in real-world conditions — technically robust, user-friendly, and scalable. Long-term, I’m drawn to high-impact problems where technology improves lives, especially accessibility, healthcare, and autonomous systems.</p>
+        <h2>Interests</h2>
+        <p>AI & Machine Learning: applied to healthcare, accessibility, and social good. Robotics & Navigation: autonomous systems and intelligent devices. Data Science: predictive modeling and processing complex datasets. Software & App Development: designing user-centered applications.</p>
+        <p>I enjoy building systems that work in real-world conditions — technically robust, user-friendly, and scalable. Long-term, I’m drawn to high-impact problems where technology improves lives, especially accessibility, healthcare, and autonomous systems.</p>
 
-    <h2>Non-Professional Interests</h2>
-    <ul>
-        <li>Basketball (varsity player, youth coach)</li>
-        <li>Bollywood dancing</li>
-        <li>Matcha & café hopping</li>
-        <li>Hiking & gym</li>
-        <li>Beach</li>
-    </ul>
+        <h2>Non-Professional Interests</h2>
+        <ul>
+            <li>Basketball (varsity player, youth coach)</li>
+            <li>Bollywood dancing</li>
+            <li>Matcha & café hopping</li>
+            <li>Hiking & gym</li>
+            <li>Beach</li>
+        </ul>
 
-    <h2>Fun Facts & Activities</h2>
-    <ul>
-        <li>Speech & Debate Team: Policy Debater, Public Speaker, Spirit Committee Member. Mentored 30+ novices, placed 3rd at Stanford Invitational, 8th & 13th at Stephen Stewart, organized senior night for 200+ attendees.</li>
-        <li>Varsity Basketball Team: League Champion (2023), CCS Qualifier (2024), Nationals Winner (2022).</li>
-        <li>Robotics Team: CAD Designer. 4-year FRC Team 604 member; 4th & 5th at FIRST World Championships, 1st at Chezy Champs, 5th on Einstein field. Extensive mentoring and leadership within the team.</li>
-        <li>Built AI-powered smart glasses integrating object detection and ChatGPT.</li>
-        <li>Developed drone navigation web app for rural healthcare delivery.</li>
-        <li>Won local AI hackathon for Digital Speech Coach using NLP — <a href="https://github.com/yourrepo" target="_blank">GitHub</a>.</li>
-        <li>Taught coding workshops to 5,000+ students nationwide with Kids Teach Tech.</li>
-        <li>Served as CFO for Entrepreneurship Leadership Conference, managing budgets for 100+ participants.</li>
-    </ul>
+        <h2>Fun Facts & Activities</h2>
+        <ul>
+            <li>Speech & Debate Team: Policy Debater, Public Speaker, Spirit Committee Member. Mentored 30+ novices, placed 3rd at Stanford Invitational, 8th & 13th at Stephen Stewart, organized senior night for 200+ attendees.</li>
+            <li>Varsity Basketball Team: League Champion (2023), CCS Qualifier (2024), Nationals Winner (2022).</li>
+            <li>Robotics Team: CAD Designer. 4-year FRC Team 604 member; 4th & 5th at FIRST World Championships, 1st at Chezy Champs, 5th on Einstein field. Extensive mentoring and leadership within the team.</li>
+            <li>Built AI-powered smart glasses integrating object detection and ChatGPT.</li>
+            <li>Developed drone navigation web app for rural healthcare delivery.</li>
+            <li>Won local AI hackathon for Digital Speech Coach using NLP — <a href="https://github.com/yourrepo" target="_blank">GitHub</a>.</li>
+            <li>Taught coding workshops to 5,000+ students nationwide with Kids Teach Tech.</li>
+            <li>Served as CFO for Entrepreneurship Leadership Conference, managing budgets for 100+ participants.</li>
+        </ul>
 
-    <h2>Projects & Hackathons</h2>
-    <ul>
-        <li>AI Smart Glasses | BlueStamp Engineering — Raspberry Pi wearable smart glasses with ultrasonic sensors, object detection, ChatGPT integration. <a href="https://github.com/yourrepo" target="_blank">Repo</a></li>
-        <li>Rural Drone Navigation Web App — Flask web app for drone medicine delivery in rural areas. Google Maps API integrated. <a href="https://colab.research.google.com/yourcolab" target="_blank">Colab</a></li>
-        <li>Heart X-Ray Analyzer — ML model using OpenCV & scikit-learn to detect abnormalities in chest X-rays with NLP-generated summaries. <a href="https://github.com/yourrepo" target="_blank">Repo</a></li>
-    </ul>
+        <h2>Projects & Hackathons</h2>
+        <ul>
+            <li>AI Smart Glasses | BlueStamp Engineering — Raspberry Pi wearable smart glasses with ultrasonic sensors, object detection, ChatGPT integration. <a href="https://github.com/yourrepo" target="_blank">Repo</a></li>
+            <li>Rural Drone Navigation Web App — Flask web app for drone medicine delivery in rural areas. Google Maps API integrated. <a href="https://colab.research.google.com/yourcolab" target="_blank">Colab</a></li>
+            <li>Heart X-Ray Analyzer — ML model using OpenCV & scikit-learn to detect abnormalities in chest X-rays with NLP-generated summaries. <a href="https://github.com/yourrepo" target="_blank">Repo</a></li>
+        </ul>
 
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:gunukulasaanvi@gmail.com">gunukulasaanvi@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/saanvi365" target="_blank">github.com/saanvi365</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/saanvi-gunukula-7a686a247/" target="_blank">linkedin.com/in/saanvi-gunukula-7a686a247/</a></p>
-    <p>If you're working on something interesting, I’d love to hear about it.</p>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:gunukulasaanvi@gmail.com">gunukulasaanvi@gmail.com</a></p>
+        <p>GitHub: <a href="https://github.com/saanvi365" target="_blank">github.com/saanvi365</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/saanvi-gunukula-7a686a247/" target="_blank">linkedin.com/in/saanvi-gunukula-7a686a247/</a></p>
+        <p>If you're working on something interesting, I’d love to hear about it.</p>
 
-    <footer>
-        &copy; 2026 Saanvi Gunukula
-    </footer>
-
+        <footer>&copy; 2026 Saanvi Gunukula</footer>
+    </main>
 </body>
 </html>
