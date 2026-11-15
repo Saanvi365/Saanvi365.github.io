@@ -314,7 +314,18 @@
     <span class="mono">built with too much matcha</span>
 </footer>
 
-<script src="photos.js"></script>
+<script src="photo-portrait.js"></script>
+<script src="photo-1.js"></script>
+<script src="photo-2.js"></script>
+<script src="photo-3.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("img[data-photo]").forEach(function (img) {
+    var src = (window.SITE_PHOTOS || {})[img.getAttribute("data-photo")];
+    if (src) img.src = src;
+  });
+});
+</script>
 <script>
 (function () {
     const canvas = document.getElementById('court');
@@ -477,4 +488,4 @@
 })();
 </script>
 </body>
-    </html>
+                     </html>
