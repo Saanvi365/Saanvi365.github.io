@@ -12,7 +12,7 @@
             --ink: #0a0a0a;
             --body: #171717;
             --muted: #737373;
-            --accent: #e8722a; /* basketball orange, only inside the hero */
+            --accent: #e8722a; /* basketball orange */
         }
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -34,16 +34,29 @@
             display: flex; justify-content: space-between; align-items: baseline;
             padding: 28px 0 40px;
         }
-        nav .brand { font-weight: 600; color: var(--ink); }
-        nav .brand span { color: var(--accent); }
+        nav .brand { font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+        nav .brand svg { display: block; cursor: pointer; }
         nav .links a { color: var(--muted); margin-left: 16px; }
         nav .links a:hover { color: var(--ink); text-decoration: none; }
 
-        header { padding-bottom: 8px; }
-        #court { display: block; width: 100%; height: 280px; cursor: pointer; }
-        .hint { text-align: right; font-size: 12px; padding-right: 4px; }
+        /* full-viewport intro: the corner three plays once, then steps aside
+           and leaves the ball behind as the logo, like the paper plane on
+           nihal's site. click the ball in the nav to run it back. */
+        #intro {
+            position: fixed; inset: 0; z-index: 50;
+            background: #fff;
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        #intro.away { opacity: 0; transform: translateY(-4%); pointer-events: none; }
+        #intro canvas { display: block; width: 100vw; height: 100vh; cursor: pointer; }
+        #intro .skip {
+            position: absolute; right: 32px; bottom: 28px;
+            font-size: 12px; cursor: pointer;
+        }
+        #intro .skip:hover { color: var(--ink); }
 
         section { margin-top: 48px; }
+        section:first-of-type { margin-top: 8px; }
         h2 {
             font-size: 18px; font-weight: 700; letter-spacing: -0.36px;
             color: var(--ink); margin: 0 0 16px;
@@ -68,6 +81,7 @@
             font-size: 14px; margin-top: 2px; line-height: 1.55;
         }
         .row .tag { font-size: 12px; white-space: nowrap; }
+        .row .tag a { color: var(--muted); }
 
         .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
         .photo { aspect-ratio: 4/5; background: #fafafa; border-radius: 6px; overflow: hidden; }
@@ -88,9 +102,21 @@
 </head>
 <body>
 
+<div id="intro">
+    <canvas id="court" title="click to skip"></canvas>
+    <div class="mono skip">click anywhere to skip ↓</div>
+</div>
+<noscript><style>#intro{display:none}</style></noscript>
+
 <main>
 <nav>
-    <div class="brand">saanvi gunukula <span>●</span></div>
+    <div class="brand">
+        <svg id="logo-ball" width="15" height="15" viewBox="0 0 24 24" title="run it back" role="button" aria-label="replay the intro">
+            <circle cx="12" cy="12" r="11" fill="#e8722a" stroke="#8a3d08" stroke-width="1.5"/>
+            <path d="M1 12 H23 M12 1 V23 M4.5 4.5 A 14 14 0 0 1 4.5 19.5 M19.5 4.5 A 14 14 0 0 0 19.5 19.5" stroke="#8a3d08" stroke-width="1.5" fill="none"/>
+        </svg>
+        <span>saanvi gunukula</span>
+    </div>
     <div class="links">
         <a href="#about">about</a>
         <a href="#experience">experience</a>
@@ -99,19 +125,26 @@
     </div>
 </nav>
 
-<header>
-    <canvas id="court" title="click to run the play again"></canvas>
-    <div class="mono hint">corner three, every time ↗</div>
-</header>
-
 <section id="about">
     <div class="intro">
         <div class="text">
             <p>
-                I want to build AI systems for problems that actually matter. Right now that means CS at UC Berkeley (class of 2030) and projects like smart glasses that help visually impaired users navigate independently, a drone network that brings healthcare access to rural areas, and models that turn messy medical data into something a doctor can act on.
+                hi, i'm saanvi. i'm a first-year cs student at uc berkeley (class of 2030), and i build things. the thread through pretty much everything i make is the same: i like noticing when something is harder than it should be for someone, and then doing something about it with code.
             </p>
             <p>
-                I came to this work personally. After experiencing vision challenges myself, assistive tech stopped being an abstract research interest and started being the point. Proof points: 1st place at an AI hackathon for an NLP speech coach, 5,000+ students taught to code through Kids Teach Tech, and a community campaign that reached 20,000+ people. I move fast, ship working systems (not just notebooks), and I'm looking for research, internship, or build opportunities where getting the technical details right changes someone's actual life.
+                that instinct is personal. i've dealt with vision challenges myself, so assistive tech was never an abstract "interesting area" for me - it's the difference between needing help and not needing it. that turned into a pair of ai smart glasses at bluestamp (ultrasonic sensors, real-time object detection, voice controls, all on a raspberry pi), a cnn that reads chest x-rays and explains its answer in plain language, a speech coach that took 1st place at warrior hacks, and most recently signspeak, a real-time asl fingerspelling translator. i keep coming back to the same question: who is this hard for, and how do i make it easy?
+            </p>
+            <p>
+                i also just love shipping. at phyvant, an a16z speedrun-backed startup, i built and debugged the python evaluation harnesses that benchmarked their enterprise ai knowledge-graph platforms - not glamorous, but exactly the kind of work where getting the details right is the whole job. before that at personify i dug through feedback from 8,000+ users and helped push chatbot engagement up 9%. i'd rather have one system in front of real people than ten notebooks on my laptop.
+            </p>
+            <p>
+                when i'm not building, i'm usually on a basketball court. i played varsity - league champion in 2023, ccs qualifier in 2024, nationals winner in 2022 - but the thing i'm proudest of is coaching 120+ kids through project hoops and raising over $20,000 through tournaments and outreach. the corner three you saw when this page loaded is not a stock animation. it's a scouting report.
+            </p>
+            <p>
+                the rest of my time goes to the communities that raised me: running an international humanitarian law campaign with the red cross (top 5 of 20, plus blood drives and a 500-person leadership camp), teaching python and java to 5,000+ students through kids teach tech, organizing isa events, and working cal hacks logistics. i like being the person who makes the thing happen.
+            </p>
+            <p>
+                if you're working on research, an internship, or a build where the technical details change someone's actual life, i want to hear about it. my email is at the bottom of this page and it goes straight to me.
             </p>
         </div>
         <figure>
@@ -269,7 +302,7 @@
         <span class="what">basketball
             <small>varsity player - league champion 2023, ccs qualifier 2024, nationals winner 2022. coached 120+ youth players through project hoops, raising $20,000+ via tournaments and outreach.</small>
         </span>
-        <span class="tag mono">the hero up top ↗</span>
+        <span class="tag mono"><a href="#top" data-replay>the intro up top ↗</a></span>
     </div>
 
     <div class="row">
@@ -337,6 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 (function () {
+    const intro = document.getElementById('intro');
     const canvas = document.getElementById('court');
     const ctx = canvas.getContext('2d');
     let W = 0, H = 0, dpr = 1;
@@ -350,16 +384,16 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('resize', resize);
     resize();
 
-    const INK = '#111', ACCENT = '#e8722a', MUTED = '#ccc';
+    const INK = '#111', ACCENT = '#e8722a', MUTED = '#ddd';
 
     function geom() {
-        const rimX = W * 0.78, rimY = H * 0.42, rimR = 26;
-        const startX = W * 0.14, startY = H * 0.74;
-        return { rimX, rimY, rimR, startX, startY, ballR: Math.max(9, Math.min(13, W * 0.016)) };
+        const rimX = W * 0.72, rimY = H * 0.44, rimR = Math.max(20, Math.min(30, W * 0.03));
+        const startX = W * 0.18, startY = H * 0.66;
+        return { rimX, rimY, rimR, startX, startY, ballR: Math.max(11, Math.min(16, W * 0.014)) };
     }
 
     function flightPoint(t, g) {
-        const cx = (g.startX + g.rimX) / 2, cy = Math.min(g.startY, g.rimY) - H * 0.52;
+        const cx = (g.startX + g.rimX) / 2, cy = Math.min(g.startY, g.rimY) - H * 0.38;
         const u = 1 - t;
         return {
             x: u * u * g.startX + 2 * u * t * cx + t * t * g.rimX,
@@ -367,15 +401,17 @@ document.addEventListener("DOMContentLoaded", function () {
         };
     }
 
-    const T_FLY = 1.15, T_SWISH = 0.55, T_DROP = 0.5, T_HOLD = 1.1;
+    const T_FLY = 1.15, T_SWISH = 0.55, T_DROP = 0.5, T_HOLD = 1.4;
     const T_TOTAL = T_FLY + T_SWISH + T_DROP + T_HOLD;
     let t0 = performance.now();
+    let dismissed = false;
+    let rafId = null;
 
     function drawCourt(g) {
         ctx.strokeStyle = MUTED; ctx.lineWidth = 1.4; ctx.lineCap = 'round';
         ctx.beginPath(); ctx.moveTo(0, g.startY + 30); ctx.lineTo(W, g.startY + 30); ctx.stroke();
         ctx.beginPath();
-        ctx.arc(g.rimX, g.rimY, Math.min(W * 0.42, H * 0.95), Math.PI * 0.62, Math.PI * 1.02);
+        ctx.arc(g.rimX, g.rimY, Math.min(W * 0.3, H * 0.42), Math.PI * 0.62, Math.PI * 1.02);
         ctx.stroke();
     }
 
@@ -432,9 +468,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let frame = 0;
     function tick(now) {
+        if (dismissed) return;
         frame++;
         const g = geom();
-        const t = ((now - t0) / 1000) % T_TOTAL;
+        const t = (now - t0) / 1000;
+        if (t >= T_TOTAL) { dismiss(); return; }
         ctx.clearRect(0, 0, W, H);
 
         drawCourt(g);
@@ -470,17 +508,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (t > T_FLY && t < T_FLY + T_SWISH + 0.35) {
             ctx.fillStyle = INK;
-            ctx.font = '500 13px ui-monospace, SFMono-Regular, Menlo, monospace';
+            ctx.font = '500 15px ui-monospace, SFMono-Regular, Menlo, monospace';
             ctx.globalAlpha = Math.min(1, (t - T_FLY) * 6) * (t > T_FLY + T_SWISH ? 0.6 : 1);
-            ctx.fillText('swish.', g.rimX - g.rimR - 44, g.rimY - 30);
+            ctx.fillText('swish.', g.rimX - g.rimR - 48, g.rimY - 32);
             ctx.globalAlpha = 1;
         }
 
-        requestAnimationFrame(tick);
+        rafId = requestAnimationFrame(tick);
     }
-    requestAnimationFrame(tick);
 
-    canvas.addEventListener('click', () => { t0 = performance.now(); });
+    function dismiss() {
+        if (dismissed) return;
+        dismissed = true;
+        intro.classList.add('away');
+        setTimeout(function () { intro.style.display = 'none'; }, 950);
+    }
+
+    function play() {
+        dismissed = false;
+        intro.style.display = 'block';
+        intro.classList.remove('away');
+        resize();
+        t0 = performance.now();
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = requestAnimationFrame(tick);
+    }
+
+    canvas.addEventListener('click', dismiss);
+    intro.querySelector('.skip').addEventListener('click', dismiss);
+    document.getElementById('logo-ball').addEventListener('click', play);
+    document.querySelectorAll('[data-replay]').forEach(function (el) {
+        el.addEventListener('click', function (e) { e.preventDefault(); window.scrollTo(0, 0); play(); });
+    });
+
+    rafId = requestAnimationFrame(tick);
 })();
 </script>
 </body>
