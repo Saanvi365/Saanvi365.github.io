@@ -128,7 +128,7 @@
                 </p>
             </div>
             <figure>
-                <img src="photos/portrait.jpg" alt="saanvi gunukula">
+                <img data-photo="portrait" alt="saanvi gunukula">
                 <figcaption class="mono">berkeley, ca</figcaption>
             </figure>
         </div>
@@ -286,11 +286,9 @@
     <section id="photos">
         <h2>in the wild</h2>
         <div class="photos">
-            <div class="photo"><img src="photos/photo1.jpg" alt="saanvi at a cat cafe, playing with kittens" loading="lazy"></div>
-            <div class="photo"><img src="photos/photo2.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
-            <div class="photo"><img src="photos/photo3.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
-            <div class="photo"><img src="photos/photo4.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
-            <div class="photo"><img src="photos/photo5.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
+            <div class="photo"><img data-photo="photo1" alt="saanvi at a cat cafe, playing with kittens" loading="lazy"></div>
+            <div class="photo"><img data-photo="photo2" alt="saanvi (red cowboy hat) at an american red cross leadership camp" loading="lazy"></div>
+            <div class="photo"><img data-photo="photo3" alt="saanvi hitting a jumpshot, #21" loading="lazy"></div>
         </div>
     </section>
 
@@ -316,6 +314,7 @@
     <span class="mono">built with too much matcha</span>
 </footer>
 
+<script src="photos.js"></script>
 <script>
 (function () {
     const canvas = document.getElementById('court');
@@ -478,4 +477,4 @@
 })();
 </script>
 </body>
-</html>
+    </html>
