@@ -3,202 +3,479 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saanvi Gunukula</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>saanvi gunukula</title>
+    <meta name="description" content="saanvi gunukula - cs @ uc berkeley, class of 2030. ai for accessibility and healthcare.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ink: #111;
+            --muted: #777;
+            --line: #e5e5e5;
+            --accent: #e8722a; /* basketball orange, the only color on the page */
+        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #f9f9f9;
-            color: #111;
+            background: #fff;
+            color: var(--ink);
             margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
+            -webkit-font-smoothing: antialiased;
         }
+        a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+        a:hover { border-bottom-color: var(--ink); }
 
-        main {
-            max-width: 420px;
-            padding: 40px 20px;
+        .mono { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+
+        nav {
+            display: flex; justify-content: space-between; align-items: baseline;
+            max-width: 760px; margin: 0 auto; padding: 28px 24px 0;
         }
+        nav .brand { font-weight: 600; font-size: 0.95rem; }
+        nav .brand span { color: var(--accent); }
+        nav .links a { border: none; font-size: 0.82rem; color: var(--muted); margin-left: 18px; }
+        nav .links a:hover { color: var(--ink); }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            text-align: center;
+        header {
+            max-width: 760px; margin: 0 auto; padding: 72px 24px 24px;
         }
+        header h1 {
+            font-size: clamp(2.2rem, 6vw, 3.4rem);
+            font-weight: 600; letter-spacing: -0.03em; margin: 0 0 10px;
+        }
+        header .tag { font-size: 0.95rem; color: var(--muted); margin: 0; }
+        header .tag .mono { margin-right: 10px; }
 
+        #court { display: block; width: 100%; height: 300px; margin-top: 8px; cursor: pointer; }
+        .hint { text-align: right; padding-right: 4px; }
+
+        main { max-width: 760px; margin: 0 auto; padding: 24px; }
+        section { margin: 56px 0; }
         h2 {
-            font-size: 1.2rem;
-            margin-top: 2rem;
-            margin-bottom: 0.8rem;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 4px;
+            font-size: 0.8rem; font-weight: 500; text-transform: lowercase;
+            letter-spacing: 0.14em; color: var(--muted); margin: 0 0 18px;
+        }
+        .about-grid { display: flex; gap: 28px; align-items: flex-start; }
+        .about-grid .text { flex: 1; }
+        .about-grid figure { margin: 0; width: 220px; flex-shrink: 0; }
+        .about-grid img { width: 100%; border-radius: 6px; display: block; }
+        .about-grid figcaption { margin-top: 6px; }
+        @media (max-width: 560px) {
+            .about-grid { flex-direction: column; }
+            .about-grid figure { width: 100%; max-width: 320px; }
         }
 
-        h3 {
-            font-size: 1.05rem;
-            margin-top: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
+        section > p { font-size: 0.95rem; line-height: 1.65; max-width: 640px; }
 
-        p, li {
-            font-size: 0.92rem;
-            margin-bottom: 0.7rem;
-            line-height: 1.5;
+        .row {
+            display: flex; justify-content: space-between; align-items: baseline;
+            gap: 16px; padding: 13px 0; border-top: 1px solid var(--line);
         }
+        .row:last-child { border-bottom: 1px solid var(--line); }
+        .row .what { font-size: 0.95rem; font-weight: 500; }
+        .row .what small { display: block; font-weight: 400; color: var(--muted); font-size: 0.82rem; margin-top: 3px; line-height: 1.5; }
+        .row .tag { white-space: nowrap; }
 
-        ul {
-            padding-left: 18px;
-        }
-
-        a {
-            color: #0077cc;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+        .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+        .photo { aspect-ratio: 4/5; background: #fafafa; border-radius: 6px; overflow: hidden; }
+        .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         footer {
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid #ccc;
-            font-size: 0.8rem;
-            color: #666;
-            text-align: center;
+            max-width: 760px; margin: 0 auto; padding: 0 24px 48px;
+            display: flex; justify-content: space-between; align-items: baseline;
+            border-top: 1px solid var(--line); padding-top: 20px;
+        }
+        footer .links a { margin-right: 16px; font-size: 0.82rem; }
+
+        @media (max-width: 560px) {
+            nav .links a { margin-left: 12px; }
+            .row { flex-direction: column; gap: 4px; }
+            .row .tag { white-space: normal; }
         }
     </style>
 </head>
 <body>
-    <main>
 
-        <h1>Saanvi Gunukula</h1>
+<nav>
+    <div class="brand">saanvi gunukula <span>●</span></div>
+    <div class="links">
+        <a href="#about">about</a>
+        <a href="#experience">experience</a>
+        <a href="#projects">projects</a>
+        <a href="#passions">passions</a>
+        <a href="#contact">contact</a>
+    </div>
+</nav>
 
-        <h2>About Me</h2>
-        <p>
-           First-year CS student at UC Berkeley (Class of 2030). I build AI systems for problems that actually matter: smart glasses that help visually impaired users navigate independently, a drone network that brings healthcare access to rural areas, and models that turn messy medical data into something a doctor can act on. I came to this work personally. After experiencing vision challenges myself, assistive tech stopped being an abstract research interest and started being the point. A few proof points: 1st place at an AI hackathon for an NLP speech coach, 5,000+ students taught to code through Kids Teach Tech, and a community campaign that reached 20,000+ people. I move fast, ship working systems (not just notebooks), and I'm looking for research, internship, or build opportunities where getting the technical details right changes someone's actual life. If you'd like to talk about anything, I'd love to chat.
-        </p>
+<header id="about">
+    <h1>hey, i'm saanvi.</h1>
+    <p class="tag"><span class="mono">cs @ uc berkeley · class of 2030</span> i build ai systems for problems that actually matter.</p>
+    <canvas id="court" title="click to run the play again"></canvas>
+    <div class="mono hint">corner three, every time ↗</div>
+</header>
 
-        <h2>Interests</h2>
-        <p>
-            <strong>AI and Machine Learning:</strong> applied to healthcare, accessibility, and social good.<br>
-            <strong>Robotics and Autonomous Systems:</strong> building devices that make decisions in the real world.<br>
-            <strong>Data Science:</strong> finding signal in messy, high-stakes datasets.<br>
-            <strong>Software Development:</strong> designing applications that are actually useful to the people who need them.
-        </p>
-        <p>
-            I care about building systems that hold up outside of a notebook, technically sound, accessible to real users, and scalable beyond a demo. Long term, I want to work on problems where getting the technology right genuinely changes someone's life.
-        </p>
+<main>
+    <section>
+        <h2>about</h2>
+        <div class="about-grid">
+            <div class="text">
+                <p>
+                    First-year CS student at UC Berkeley (Class of 2030). I build AI systems for problems that actually matter: smart glasses that help visually impaired users navigate independently, a drone network that brings healthcare access to rural areas, and models that turn messy medical data into something a doctor can act on.
+                </p>
+                <p>
+                    I came to this work personally. After experiencing vision challenges myself, assistive tech stopped being an abstract research interest and started being the point. A few proof points: 1st place at an AI hackathon for an NLP speech coach, 5,000+ students taught to code through Kids Teach Tech, and a community campaign that reached 20,000+ people. I move fast, ship working systems (not just notebooks), and I'm looking for research, internship, or build opportunities where getting the technical details right changes someone's actual life.
+                </p>
+            </div>
+            <figure>
+                <img src="photos/portrait.jpg" alt="saanvi gunukula">
+                <figcaption class="mono">berkeley, ca</figcaption>
+            </figure>
+        </div>
+    </section>
 
-        <h2>Non-Professional Interests</h2>
-        <ul>
-            <li>Basketball (varsity player, youth coach)</li>
-            <li>Bollywood dancing</li>
-            <li>Matcha and café hopping</li>
-            <li>Hiking and gym</li>
-            <li>Beach</li>
-        </ul>
+    <section id="experience">
+        <h2>experience</h2>
 
-        <h2>Activities</h2>
+        <div class="row">
+            <div class="what">phyvant
+                <small>machine learning intern at an a16z speedrun-backed enterprise ai startup. built and debugged python evaluation harnesses benchmarking enterprise ai knowledge-graph platforms.</small>
+            </div>
+            <div class="tag mono">ml · evals</div>
+        </div>
 
-        <h3>Leadership</h3>
-        <ul>
-            <li>
-            CFO, Entrepreneurship Leadership Conference. Selected from 97 students across 27 schools. Managed financial strategy, hosted 5 or more CEO events annually, and contributed to a top 5 team finish.
-            </li>
+        <div class="row">
+            <div class="what">personify
+                <small>marketing &amp; ai intern at an ai college counseling platform. analyzed feedback from 8,000+ users and helped improve chatbot engagement by 9%.</small>
+            </div>
+            <div class="tag mono">ai · growth</div>
+        </div>
 
-            <li>
-            Marketing and AI Startup Intern at Personify, an AI college counseling platform. Analyzed feedback from 8,000+ users and helped improve chatbot engagement by 9%.
-            </li>
+        <div class="row">
+            <div class="what">saloni heart foundation
+                <small>youth leader. raised $10,000+ for pediatric heart surgeries in india.</small>
+            </div>
+            <div class="tag mono">nonprofit</div>
+        </div>
 
-            <li>
-            Nonprofit Leadership. Youth leader for Saloni Heart Foundation, raising $10,000+ for pediatric heart surgeries in India, and founder of MemoryMatters with over $10,000 raised. Wrote 50 or more grants and led events reaching 2,000 or more people.
-            </li>
+        <div class="row">
+            <div class="what">memorymatters
+                <small>founder. raised $10,000+, wrote 50+ grants, and led events reaching 2,000+ people.</small>
+            </div>
+            <div class="tag mono">founder</div>
+        </div>
 
-            <li>
-            Speech and Debate. Spirit Committee lead, organized senior night for 200 or more attendees, and mentored 30 or more novice debaters.
-            </li>
-        </ul>
+        <div class="row">
+            <div class="what">entrepreneurship leadership conference
+                <small>cfo, selected from 97 students across 27 schools. managed financial strategy, hosted 5+ ceo events annually, top 5 team finish.</small>
+            </div>
+            <div class="tag mono">leadership</div>
+        </div>
 
-        <h3>Technology</h3>
-        <ul>
-    
-            <li>
-            Robotics, FRC Team 604. Four year CAD designer. Placed 4th and 5th at FIRST World Championships out of 3,000 or more teams, 1st at Chezy Champs, and 5th on Einstein field.
-            </li>
+        <div class="row">
+            <div class="what">barista · tutor · caregiver
+                <small>managed independent café shifts, mentored staff, and tutored 10+ students across stem subjects.</small>
+            </div>
+            <div class="tag mono">work</div>
+        </div>
+    </section>
 
-            <li>
-            AI and Machine Learning Projects. Built smart glasses for vision loss, a chest X ray classifier, and NLP tools including a hackathon winning speech coach.
-            </li>
+    <section id="projects">
+        <h2>projects</h2>
 
-            <li>
-            Hackathons. Won 1st place for NLP speech coach and journaling tool across multiple competitions including Warrior Hacks and Future Hacks.
-            </li>
-        </ul>
+        <div class="row">
+            <div class="what"><a href="https://github.com/Saanvi365/SignSpeak" target="_blank">signspeak</a>
+                <small>real-time asl fingerspelling translator: webcam sign-language-to-text with mediapipe and scikit-learn.</small>
+            </div>
+            <div class="tag mono">cv · ml</div>
+        </div>
 
-        <h3>Service</h3>
-        <ul>
-            <li>
-            Kids Teach Tech. Taught Python and Java to 5,000 or more students across the United States. Designed curriculum and led workshops for underserved communities.
-            </li>
+        <div class="row">
+            <div class="what"><a href="https://github.com/Saanvi365/heart-xray-classifier" target="_blank">heart x-ray classifier</a>
+                <small>cnn + transfer learning (vgg16 / resnet50) for chest x-ray pneumonia detection, with plain-language summaries.</small>
+            </div>
+            <div class="tag mono">health ai</div>
+        </div>
 
-            <li>
-            American Red Cross. Led International Humanitarian Law campaign and symposium ranked top 5 out of 20, organized blood drives, and helped run a 500 person leadership camp.
-            </li>
+        <div class="row">
+            <div class="what"><a href="https://github.com/Saanvi365/digital-speech-coach" target="_blank">digital speech coach</a>
+                <small>nlp tool that analyzes pacing, clarity, and confidence from a recording and gives real-time coaching feedback. 1st place, warrior hacks.</small>
+            </div>
+            <div class="tag mono">nlp · 1st place</div>
+        </div>
 
-            <li>
-            Library and STEM Outreach. Taught reading and STEM programs to 3,000 or more students through community initiatives.
-            </li>
-        </ul>
+        <div class="row">
+            <div class="what"><a href="https://github.com/Saanvi365/Saanvi_SmartGlassesPortfolio" target="_blank">ai smart glasses</a>
+                <small>raspberry pi wearable with ultrasonic sensors, real-time object detection, voice-activated controls, and chatgpt integration. bluestamp engineering.</small>
+            </div>
+            <div class="tag mono">accessibility</div>
+        </div>
 
-        <h3>Athletics</h3>
-        <ul>
-            <li>
-            Varsity Basketball and Project Hoops. League Champion in 2023, CCS Qualifier in 2024, and Nationals Winner in 2022. Coached 120 or more youth players and raised over 20,000 dollars through tournaments and outreach.
-            </li>
-        </ul>
+        <div class="row">
+            <div class="what">rural drone navigation
+                <small>flask app that identifies the nearest pharmacy and simulates drone delivery with 3d flight paths and live tracking.</small>
+            </div>
+            <div class="tag mono">health access</div>
+        </div>
+    </section>
 
-        <h3>Work Experience</h3>
-        <ul>
-            <li>
-            Machine Learning Intern at Phyvant, an a16z Speedrun-backed enterprise AI startup. Built and debugged Python evaluation harnesses benchmarking enterprise AI knowledge-graph platforms.
-            </li>
-            <li>
-            Barista, Private Tutor, and Caregiver. Managed independent café shifts, mentored staff, and tutored 10 or more students across STEM subjects.
-            </li>
-        </ul>
+    <section>
+        <h2>more things i've done</h2>
 
-        <h2>Projects and Hackathons</h2>
-        <ul>
-            <li>
-                <strong>AI Smart Glasses, BlueStamp Engineering</strong>. Raspberry Pi wearable with ultrasonic sensors, real time object detection, voice activated controls, and ChatGPT integration.
-                <a href="https://github.com/Saanvi365/Saanvi_SmartGlassesPortfolio" target="_blank">[Repo]</a>
-            </li>
+        <div class="row">
+            <div class="what">frc team 604 robotics
+                <small>four-year cad designer. 4th and 5th at first world championships out of 3,000+ teams, 1st at chezy champs, 5th on einstein field.</small>
+            </div>
+            <div class="tag mono">robotics</div>
+        </div>
 
-            <li>
-                <strong>Rural Drone Navigation Web App</strong>. Flask application that identifies the nearest pharmacy and simulates drone delivery with 3D flight paths and live tracking.
-            </li>
+        <div class="row">
+            <div class="what">kids teach tech
+                <small>taught python and java to 5,000+ students across the u.s. designed curriculum and led workshops for underserved communities.</small>
+            </div>
+            <div class="tag mono">teaching</div>
+        </div>
 
-            <li>
-                <strong>Heart X Ray Classifier</strong>. Machine learning model that detects abnormalities and generates plain language summaries.
-                <a href="https://github.com/Saanvi365/heart-xray-classifier" target="_blank">[Repo]</a>
-            </li>
+        <div class="row">
+            <div class="what">speech &amp; debate
+                <small>spirit committee lead. organized senior night for 200+ attendees and mentored 30+ novice debaters.</small>
+            </div>
+            <div class="tag mono">mentorship</div>
+        </div>
 
-            <li>
-                <strong>Digital Speech Coach</strong>. NLP tool that analyzes pacing and clarity in real time. Won 1st place at a local AI hackathon.
-                <a href="https://github.com/Saanvi365/digital-speech-coach" target="_blank">[Repo]</a>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="what">american red cross
+                <small>led an international humanitarian law campaign and symposium ranked top 5 of 20, organized blood drives, helped run a 500-person leadership camp.</small>
+            </div>
+            <div class="tag mono">service</div>
+        </div>
 
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:gunukulasaanvi@gmail.com">gunukulasaanvi@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/saanvi365" target="_blank">github.com/saanvi365</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/saanvi-gunukula-7a686a247/" target="_blank">linkedin.com/in/saanvi-gunukula-7a686a247/</a></p>
-        <p>If you are working on something interesting, I would love to hear about it.</p>
+        <div class="row">
+            <div class="what">library &amp; stem outreach
+                <small>taught reading and stem programs to 3,000+ students through community initiatives.</small>
+            </div>
+            <div class="tag mono">community</div>
+        </div>
+    </section>
 
-        <footer>&copy; 2026 Saanvi Gunukula</footer>
-    </main>
+    <section id="passions">
+        <h2>passions</h2>
+
+        <div class="row">
+            <div class="what">basketball
+                <small>varsity player - league champion 2023, ccs qualifier 2024, nationals winner 2022. coached 120+ youth players through project hoops, raising $20,000+ via tournaments and outreach.</small>
+            </div>
+            <div class="tag mono">the hero up top ↗</div>
+        </div>
+
+        <div class="row">
+            <div class="what">assistive tech
+                <small>after experiencing vision challenges myself, building for accessibility stopped being an interest and started being the point.</small>
+            </div>
+            <div class="tag mono">why i build</div>
+        </div>
+
+        <div class="row">
+            <div class="what">outside of work
+                <small>bollywood dancing, matcha and café hopping, hiking and the gym, the beach.</small>
+            </div>
+            <div class="tag mono">off court</div>
+        </div>
+    </section>
+
+    <section id="photos">
+        <h2>in the wild</h2>
+        <div class="photos">
+            <div class="photo"><img src="photos/photo1.jpg" alt="saanvi at a cat cafe, playing with kittens" loading="lazy"></div>
+            <div class="photo"><img src="photos/photo2.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
+            <div class="photo"><img src="photos/photo3.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
+            <div class="photo"><img src="photos/photo4.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
+            <div class="photo"><img src="photos/photo5.jpg" alt="saanvi" loading="lazy" onerror="this.closest('.photo').style.display='none'"></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>contact</h2>
+        <div class="row">
+            <div class="what"><a href="mailto:gunukulasaanvi@gmail.com">gunukulasaanvi@gmail.com</a></div>
+            <div class="tag mono">email</div>
+        </div>
+        <div class="row">
+            <div class="what"><a href="https://github.com/saanvi365" target="_blank">github.com/saanvi365</a></div>
+            <div class="tag mono">github</div>
+        </div>
+        <div class="row">
+            <div class="what"><a href="https://www.linkedin.com/in/saanvi-gunukula-7a686a247/" target="_blank">linkedin/in/saanvi-gunukula</a></div>
+            <div class="tag mono">linkedin</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <span class="mono">© 2026 saanvi gunukula</span>
+    <span class="mono">built with too much matcha</span>
+</footer>
+
+<script>
+(function () {
+    const canvas = document.getElementById('court');
+    const ctx = canvas.getContext('2d');
+    let W = 0, H = 0, dpr = 1;
+
+    function resize() {
+        dpr = window.devicePixelRatio || 1;
+        W = canvas.clientWidth; H = canvas.clientHeight;
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const INK = '#111', ACCENT = '#e8722a', MUTED = '#ccc';
+
+    // geometry (recomputed per frame so it tracks resize)
+    function geom() {
+        const rimX = W * 0.78, rimY = H * 0.42, rimR = 26;
+        const startX = W * 0.14, startY = H * 0.74;
+        return { rimX, rimY, rimR, startX, startY, ballR: Math.max(9, Math.min(13, W * 0.016)) };
+    }
+
+    // quadratic bezier flight path with a high apex
+    function flightPoint(t, g) {
+        const cx = (g.startX + g.rimX) / 2, cy = Math.min(g.startY, g.rimY) - H * 0.52;
+        const u = 1 - t;
+        return {
+            x: u * u * g.startX + 2 * u * t * cx + t * t * g.rimX,
+            y: u * u * g.startY + 2 * u * t * cy + t * t * (g.rimY - 6),
+        };
+    }
+
+    const T_FLY = 1.15, T_SWISH = 0.55, T_DROP = 0.5, T_HOLD = 1.1;
+    const T_TOTAL = T_FLY + T_SWISH + T_DROP + T_HOLD;
+    let t0 = performance.now();
+    let netKick = 0;
+
+    function drawCourt(g) {
+        ctx.strokeStyle = MUTED; ctx.lineWidth = 1.4; ctx.lineCap = 'round';
+        // floor
+        ctx.beginPath(); ctx.moveTo(0, g.startY + 30); ctx.lineTo(W, g.startY + 30); ctx.stroke();
+        // three-point arc suggestion
+        ctx.beginPath();
+        ctx.arc(g.rimX, g.rimY, Math.min(W * 0.42, H * 0.95), Math.PI * 0.62, Math.PI * 1.02);
+        ctx.stroke();
+    }
+
+    function drawHoop(g, netSway) {
+        ctx.strokeStyle = INK; ctx.lineWidth = 2; ctx.lineCap = 'round';
+        const bx = g.rimX + g.rimR + 26;
+        // backboard
+        ctx.beginPath(); ctx.moveTo(bx, g.rimY - 66); ctx.lineTo(bx, g.rimY + 18); ctx.stroke();
+        // rim
+        ctx.strokeStyle = ACCENT; ctx.lineWidth = 2.6;
+        ctx.beginPath(); ctx.moveTo(g.rimX - g.rimR, g.rimY); ctx.lineTo(bx - 2, g.rimY); ctx.stroke();
+        // net: crossing lines from rim to a swaying bottom ring
+        const bottomY = g.rimY + 42, sway = netSway * 14;
+        ctx.strokeStyle = INK; ctx.lineWidth = 1.1;
+        const topL = g.rimX - g.rimR, topR = bx - 2;
+        for (let i = 0; i <= 4; i++) {
+            const tx = topL + (topR - topL) * (i / 4);
+            const bxPos = g.rimX + (topR - topL) / 2 * ((i / 4) * 2 - 1) * 0.45 + sway * (1 - i / 8);
+            ctx.beginPath(); ctx.moveTo(tx, g.rimY);
+            ctx.quadraticCurveTo((tx + bxPos) / 2 + sway * 0.4, (g.rimY + bottomY) / 2, bxPos, bottomY);
+            ctx.stroke();
+        }
+        for (let i = 0; i < 4; i++) {
+            const tx = topL + (topR - topL) * (i / 4);
+            const bxPos = g.rimX + (topR - topL) / 2 * ((i / 4) * 2 - 1) * 0.45 + sway * (1 - i / 8);
+            ctx.beginPath(); ctx.moveTo(bxPos, bottomY);
+            ctx.quadraticCurveTo((tx + bxPos) / 2 + sway * 0.6, (g.rimY + bottomY) / 2, tx + (topR - topL) / 8, g.rimY + 20);
+            ctx.stroke();
+        }
+    }
+
+    function drawBall(x, y, r, rot, alpha) {
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.translate(x, y); ctx.rotate(rot);
+        ctx.fillStyle = ACCENT;
+        ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#8a3d08'; ctx.lineWidth = 1.2;
+        ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(-r, 0); ctx.lineTo(r, 0); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, -r); ctx.lineTo(0, r); ctx.stroke();
+        ctx.beginPath(); ctx.arc(-r * 1.6, 0, r * 1.35, -0.6, 0.6); ctx.stroke();
+        ctx.beginPath(); ctx.arc(r * 1.6, 0, r * 1.35, Math.PI - 0.6, Math.PI + 0.6); ctx.stroke();
+        ctx.restore();
+    }
+
+    function drawShooter(g, frame) {
+        // tiny line-art shooter: static figure with follow-through arm
+        const x = g.startX - 6, y = g.startY + 30;
+        ctx.strokeStyle = INK; ctx.lineWidth = 2; ctx.lineCap = 'round';
+        ctx.beginPath(); ctx.arc(x, y - 46, 6, 0, Math.PI * 2); ctx.stroke(); // head
+        ctx.beginPath(); ctx.moveTo(x, y - 40); ctx.lineTo(x, y - 16); ctx.stroke(); // body
+        ctx.beginPath(); ctx.moveTo(x, y - 16); ctx.lineTo(x - 8, y); ctx.moveTo(x, y - 16); ctx.lineTo(x + 7, y); ctx.stroke(); // legs
+        // follow-through arm up
+        ctx.beginPath(); ctx.moveTo(x, y - 36); ctx.lineTo(x + 10, y - 48 - Math.sin(frame / 9) * 1.5); ctx.stroke();
+    }
+
+    function easeInQuad(t) { return t * t; }
+    function easeOutQuad(t) { return 1 - (1 - t) * (1 - t); }
+
+    let frame = 0;
+    function tick(now) {
+        frame++;
+        const g = geom();
+        const t = ((now - t0) / 1000) % T_TOTAL;
+        ctx.clearRect(0, 0, W, H);
+
+        drawCourt(g);
+
+        let netSway = 0;
+        let ball = null, ballAlpha = 1, ballRot = 0;
+
+        if (t < T_FLY) {
+            const ft = easeInQuad(t / T_FLY);
+            const p = flightPoint(ft, g);
+            ball = p; ballRot = ft * Math.PI * 1.6;
+        } else if (t < T_FLY + T_SWISH) {
+            const st = (t - T_FLY) / T_SWISH;
+            netSway = Math.sin(st * Math.PI) * 0.9;
+            ball = { x: g.rimX + 8, y: g.rimY + 6 + easeInQuad(st) * 26 };
+            ballRot = Math.PI * 1.6 + st;
+        } else if (t < T_FLY + T_SWISH + T_DROP) {
+            const dt = (t - T_FLY - T_SWISH) / T_DROP;
+            netSway = Math.sin((1 - dt) * Math.PI) * 0.5 * (1 - dt);
+            ball = { x: g.rimX + 8 + dt * 26, y: g.rimY + 32 + easeInQuad(dt) * (g.startY - g.rimY + 26) };
+            ballAlpha = 1 - dt * 0.9;
+            ballRot = Math.PI * 2 + dt * 2;
+        } else {
+            // hold: ball fades back in at the shooter's hands
+            const ht = (t - T_FLY - T_SWISH - T_DROP) / T_HOLD;
+            ball = { x: g.startX, y: g.startY };
+            ballAlpha = Math.min(1, ht * 3);
+            ballRot = 0;
+        }
+
+        drawShooter(g, frame);
+        drawHoop(g, netSway);
+        if (ball) drawBall(ball.x, ball.y, g.ballR, ballRot, ballAlpha);
+
+        // "swish." flashes right after the make
+        if (t > T_FLY && t < T_FLY + T_SWISH + 0.35) {
+            ctx.fillStyle = INK;
+            ctx.font = '500 13px "JetBrains Mono", monospace';
+            ctx.globalAlpha = Math.min(1, (t - T_FLY) * 6) * (t > T_FLY + T_SWISH ? 0.6 : 1);
+            ctx.fillText('swish.', g.rimX - g.rimR - 44, g.rimY - 30);
+            ctx.globalAlpha = 1;
+        }
+
+        requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    canvas.addEventListener('click', () => { t0 = performance.now(); });
+})();
+</script>
 </body>
 </html>
